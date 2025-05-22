@@ -14,6 +14,7 @@ export interface RollTableResult {
     value: string;
     el?: number;
     nextTable?: string;
+    weight?: number;
     outputEmptyValue?: boolean;
 }
 
@@ -49,7 +50,8 @@ export default class GeneratorService {
                 `Roll table with ID ${rollTableId} not found in set ${rollTableSetName}`
             );
         }
-        const rollTableResult = this.makeRoll(rollTable);
+        const rollTableWithWeights = this.addWeights(rollTable);
+        const rollTableResult = this.makeRoll(rollTableWithWeights);
         return rollTableResult;
     }
 
@@ -59,13 +61,29 @@ export default class GeneratorService {
         return parse(fileContent) as RollTable[];
     }
 
+    addWeights(tableData: RollTable): RollTable {
+        tableData.entries = tableData.entries.flatMap((entry) => {
+            const weight = entry.weight ?? 1;
+            const weightedEntries = [];
+            for (let i = 0; i < weight; i ++) {
+                weightedEntries.push({
+                    ...entry,
+                });
+                delete weightedEntries[i].weight;
+            }
+            return weightedEntries;
+        });
+        return tableData;
+    }
+
     private makeRoll(tableData: RollTable): RollTableResult {
         console.log(`Rolling on table: ${tableData.name}`);
         const totalEntries = tableData.entries.length;
         const randomIndex = Math.floor(Math.random() * totalEntries);
         const result = tableData.entries[randomIndex];
         
-        console.log(`- got: ${result.value}`);
+        console.log(`- Result: ${result.value}`);
+        console.log('---');
         return {
             ...result,
             nextTable: result.nextTable ?? tableData.nextTable,

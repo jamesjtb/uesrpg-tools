@@ -48,7 +48,8 @@
       - value: Tanto
       - value: Katana
       - value: Wakizashi
-      - value: Punch Dagger/War Talons
+      - value: Punch Dagger
+      - value: War Talons
       - value: Cestus
       - value: Hook Sword
       - value: Bill Hook
@@ -56,13 +57,9 @@
   name: Ranged Weapons
   entries:
       - value: Arbalest
-        weight: 2
       - value: Crossbow
-        weight: 2
       - value: Longbow
-        weight: 2
       - value: Shortbow
-        weight: 2
       - value: Throwing Star x 10
       - value: Dart x 10
 - id: ammunition
