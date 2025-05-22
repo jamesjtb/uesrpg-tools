@@ -63,8 +63,8 @@
         weight: 2
       - value: Shortbow
         weight: 2
-      - value: x 10 Throwing Star
-      - value: x 10 Dart
+      - value: Throwing Star x 10
+      - value: Dart x 10
 - id: ammunition
   name: Ammunition
   entries:
@@ -121,7 +121,7 @@
         el: 1500
       - value: Ebony
         el: 1250
-      - value: malachite
+      - value: Malachite
         el: 200
       - value: Dragonbone
         el: 1500
