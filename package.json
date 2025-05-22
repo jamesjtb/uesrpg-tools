@@ -15,5 +15,8 @@
   },
   "dependencies": {
     "yaml": "^2.8.0"
+  },
+  "bin": {
+    "uesrpg-generate": "./dist/uesrpg-generate.js"
   }
 }
