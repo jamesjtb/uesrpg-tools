@@ -2,10 +2,11 @@
   "name": "uesrpg-tools",
   "version": "0.1.3",
   "description": "A library of helpful functions for UESRPG",
-  "main": "./dist/uesrpg-generate.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
-    "postbuild": "chmod -x ./dist/uesrpg-generate.js && node ./build-tools/add-shebang.js && cp -r ./src/data ./dist/"
+    "postbuild": "chmod -x ./dist/uesrpg-generate.js && node ./build-tools/add-shebang.js && cp -r ./src/data ./dist/",
+    "publish-custom": "npm run build && cd dist && cp ../package.json . && cp ../README.md . && cp ../LICENSE . && cp ../package.json . && npm install --omit=dev && npm publish"
   },
   "author": "greybard",
   "license": "ISC",
@@ -18,6 +19,6 @@
     "yaml": "^2.8.0"
   },
   "bin": {
-    "uesrpg-generate": "./dist/uesrpg-generate.js"
+    "uesrpg-generate": "./uesrpg-generate.js"
   }
 }
