@@ -1,0 +1,352 @@
+- id: categories
+  name: Item Categories
+  outputEmptyValue: true
+  entries:
+      - value: Melee Weapons
+        nextTable: meleeMaterials
+      - value: Ranged Weapons
+        nextTable: rangedMaterials
+      - value: Ammunition
+        nextTable: ammunitionMaterials
+      - value: Shields
+        nextTable: shieldMaterials
+      - value: Armor
+        nextTable: armorMaterials
+      - value: Clothing
+        nextTable: clothing
+      - value: Jewelry
+        nextTable: jewelryQualities
+- id: meleeWeapons
+  name: Melee Weapons
+  entries:
+      - value: Great Sword
+      - value: Longsword
+      - value: Broadsword
+      - value: Sabre
+      - value: Scimitar
+      - value: Shortsword
+      - value: Rapier
+      - value: Dagger
+      - value: Great Axe
+      - value: Battle Axe
+      - value: War Axe
+      - value: Hand Axe
+      - value: Great Flail
+      - value: Maul
+      - value: Warhammer
+      - value: Mace
+      - value: Flail
+      - value: Halberd
+      - value: Pike
+      - value: Lance
+      - value: Spear
+      - value: Trident
+      - value: Quarterstaff
+      - value: Javelin
+      - value: Parrying Dagger
+      - value: Dai-Katana
+      - value: Tanto
+      - value: Katana
+      - value: Wakizashi
+      - value: Punch Dagger/War Talons
+      - value: Cestus
+      - value: Hook Sword
+      - value: Bill Hook
+- id: rangedWeapons
+  name: Ranged Weapons
+  entries:
+      - value: Arbalest
+        weight: 2
+      - value: Crossbow
+        weight: 2
+      - value: Longbow
+        weight: 2
+      - value: Shortbow
+        weight: 2
+      - value: x 10 Throwing Star
+      - value: x 10 Dart
+- id: ammunition
+  name: Ammunition
+  entries:
+      - value: Splitting Arrows x 10
+      - value: Slashing Arrows x 10
+      - value: Bolts x 10
+- id: meleeMaterials
+  name: Melee Weapon Materials
+  nextTable: meleeWeapons
+  entries:
+      - value: Chitin
+        el: 100
+      - value: Iron
+        el: 200
+      - value: Silver
+        el: 550
+      - value: Steel
+        el: 300
+      - value: Dwemer
+        el: 400
+      - value: Moonstone
+        el: 500
+      - value: Orichalcum
+        el: 400
+      - value: Adamantium
+        el: 1000
+      - value: Malachite
+        el: 200
+      - value: Stahlrim
+        el: 1000
+      - value: Daedric
+        el: 1500
+      - value: Ebony
+        el: 1250
+      - value: Dragonbone
+        el: 1500
+- id: rangedMaterials
+  name: Ranged Weapon Materials
+  nextTable: rangedWeapons
+  entries:
+      - value: Wood
+        el: 100
+      - value: Bonemold
+        el: 300
+      - value: Chitin
+        el: 200
+      - value: Dwemer
+        el: 800
+      - value: Orichalcum
+        el: 400
+      - value: Moonstone
+        el: 500
+      - value: Daedric
+        el: 1500
+      - value: Ebony
+        el: 1250
+      - value: malachite
+        el: 200
+      - value: Dragonbone
+        el: 1500
+- id: ammunitionMaterials
+  name: Ammunition Materials
+  nextTable: ammunition
+  entries:
+      - value: Chitin
+        el: 200
+      - value: Iron
+        el: 200
+      - value: Steel
+        el: 300
+      - value: Silver
+        el: 550
+      - value: Dwemer
+        el: 400
+      - value: Moonstone
+        el: 500
+      - value: Orichalcum
+        el: 400
+      - value: Adamantium
+        el: 1000
+      - value: Malachite
+        el: 200
+      - value: Stahlrim
+        el: 1000
+      - value: Daedric
+        el: 1500
+      - value: Ebony
+        el: 1250
+      - value: Dragonbone
+        el: 1500
+- id: armorMaterials
+  name: Armor Materials
+  nextTable: armorPieces
+  entries:
+      - value: Full Padded
+        el: 50
+      - value: Full Hide
+        el: 50
+      - value: Full Chitin
+        el: 200
+      - value: Full Leather
+        el: 150
+      - value: Full Netch Leather
+        el: 200
+      - value: Full Fur
+        el: 100
+      - value: Full Bone
+        el: 100
+      - value: Full Bonemold
+        el: 300
+      - value: Full Iron
+        el: 200
+      - value: Full Moonstone
+        el: 500
+      - value: Full Dreugh Hide
+        el: 300
+      - value: Full Steel
+        el: 300
+      - value: Full Mithril
+        el: 900
+      - value: Full Dwemer
+        el: 400
+      - value: Full Orichalcum
+        el: 400
+      - value: Full Adamantium
+        el: 1000
+      - value: Full Malachite
+        el: 200
+      - value: Full Dragonscale
+        el: 1250
+      - value: Full Ebony
+        el: 1250
+      - value: Full Stalhrim
+        el: 1000
+      - value: Full Daedric
+        el: 1500
+      - value: Full Dragonbone
+        el: 1500
+      - value: Partial Chitin
+        el: 200
+      - value: Partial Leather
+        el: 150
+      - value: Partial Fur
+        el: 100
+      - value: Partial Netch Leather
+        el: 200
+      - value: Partial Bone
+        el: 100
+      - value: Partial Bonemold
+        el: 300
+      - value: Partial Iron
+        el: 200
+      - value: Partial Moonstone
+        el: 500
+      - value: Partial Dreugh Hide
+        el: 300
+      - value: Partial Steel
+        el: 300
+      - value: Partial Mithril
+        el: 900
+      - value: Partial Dwemer
+        el: 400
+      - value: Partial Orichalcum
+        el: 400
+      - value: Partial Adamantium
+        el: 1000
+      - value: Partial Dragonscale
+        el: 1250
+      - value: Partial Malachite
+        el: 200
+      - value: Partial Ebony
+        el: 1250
+      - value: Partial Stalhrim
+        el: 1000
+      - value: Partial Daedric
+        el: 1500
+      - value: Partial Dragonbone
+        el: 1500
+- id: armorPieces
+  name: Armor Pieces
+  entries:
+      - value: Helmet
+      - value: Cuirass
+      - value: Left Gauntlet
+      - value: Right Gauntlet
+      - value: Left Boot
+      - value: Right Boot
+- id: shieldMaterials
+  name: Shield Materials
+  nextTable: shieldTypes
+  entries:
+    - value: Hide
+      el: 50
+    - value: Chitin
+      el: 200
+    - value: Leather
+      el: 150
+    - value: Fur
+      el: 100
+    - value: Netch Leather
+      el: 200
+    - value: Bonemold
+      el: 300
+    - value: Iron
+      el: 200
+    - value: Moonstone
+      el: 500
+    - value: Dreugh
+      el: 300
+    - value: Steel
+      el: 300
+    - value: Dwemer
+      el: 800
+    - value: Mithril
+      el: 900
+    - value: Orichalcum
+      el: 400
+    - value: Adamantium
+      el: 1000
+    - value: Malachite
+      el: 200
+    - value: Dragonscale
+      el: 1250
+    - value: Ebony
+      el: 1250
+    - value: Daedric
+      el: 1500
+    - value: Stalhrim
+      el: 1000
+    - value: Dragonbone
+      el: 1500
+- id: shieldTypes
+  name: Shield Types
+  entries:
+    - value: Shield
+    - value: Tower Shield
+    - value: Targe
+    - value: Buckler
+- id: clothing
+  name: Clothing
+  entries:
+    - value: Common Tunic
+      el: 100
+    - value: Traveler's Cloak
+      el: 100
+    - value: Quilted Jerkin
+      el: 100
+    - value: Sleeveless Vest
+      el: 100
+    - value: Roughspun Robe
+      el: 100
+    - value: Merchant's Outfit
+      el: 100
+    - value: Embroidered Noble Robes
+      el: 400
+    - value: Silken Courtly Attire
+      el: 400
+    - value: Arcane Scholar's Robes
+      el: 400
+    - value: Priest's Vestments
+      el: 400
+    - value: Royal Doublet
+      el: 400
+    - value: Royal Breeches
+      el: 400
+    - value: Gem-studded Festival Garb
+      el: 400
+- id: jewelry
+  name: Jewelry
+  entries:
+    - value: Ring
+    - value: Amulet
+    - value: Necklace
+- id: jewelryQualities
+  name: Jewelry Quality Levels
+  nextTable: jewelry
+  entries:
+    - value: Simple
+      el: 250
+    - value: Fine
+      el: 500
+    - value: Jeweled
+      el: 1000
+    - value: Extravagant
+      el: 1500

@@ -1,0 +1,19 @@
+{
+  "name": "uesrpg-tools",
+  "version": "0.0.0",
+  "description": "A library of helpful functions for UESRPG",
+  "main": "./dist/uesrpg-generate.js",
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "chmod -x ./dist/uesrpg-generate.js && node ./build-tools/add-shebang.js && cp -r ./src/data ./dist/"
+  },
+  "author": "greybard",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/commander": "^2.12.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "yaml": "^2.8.0"
+  }
+}
