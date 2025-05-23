@@ -1,9 +1,9 @@
 import { program } from 'commander';
-import RollTableService, { RollTableResult } from './services/3e/RollTableService';
+import RollTableService, { EquipmentRollTableResult } from './services/3e/EquipmentGenerationService';
 
 const rollTableService = new RollTableService();
 
-const generateTypeMap: Record<string, () => Promise<RollTableResult>> = {
+const generateTypeMap: Record<string, () => Promise<EquipmentRollTableResult>> = {
     equipment: rollTableService.generateEquipment.bind(rollTableService),
 };
 

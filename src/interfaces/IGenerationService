@@ -1,0 +1,4 @@
+export interface IGenerationService<T> {
+    generate(): Promise<T>;
+    rollOnTable(rollTableName: string): Promise<T>;
+}

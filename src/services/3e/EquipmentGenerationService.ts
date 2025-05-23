@@ -1,16 +1,14 @@
-import { parse } from 'yaml';
-import { readFile } from 'fs/promises';
-import { table } from 'console';
+import RollTableUtil from '../../util/RollTableUtil';
 
-interface RollTable {
+export interface EquipmentRollTable {
     id: string;
     name: string;
     nextTable?: string;
-    entries: RollTableResult[];
+    entries: EquipmentRollTableResult[];
     outputEmptyValue?: boolean;
 }
 
-export interface RollTableResult {
+export interface EquipmentRollTableResult {
     value: string;
     el?: number;
     nextTable?: string;
@@ -18,11 +16,11 @@ export interface RollTableResult {
     outputEmptyValue?: boolean;
 }
 
-export default class GeneratorService {
-    async generateEquipment(): Promise<RollTableResult> {
-        console.log('=== GENERATING EQUIPMENT ===');
+export default class EquipmentGenerationService {
+    async generateEquipment(): Promise<EquipmentRollTableResult> {
+        console.log('\n=== GENERATING EQUIPMENT ===');
         const rollTableSetName = 'equipment';
-        let cumulativeResult: RollTableResult = { value: '', el: 0, nextTable: 'categories' };
+        let cumulativeResult: EquipmentRollTableResult = { value: '', el: 0, nextTable: 'categories' };
         while (cumulativeResult.nextTable) {
             const result = await this.rollOnTable(rollTableSetName, cumulativeResult.nextTable);
 
@@ -39,51 +37,32 @@ export default class GeneratorService {
         return cumulativeResult;
     }
 
-    private async rollOnTable(
+    async rollOnTable(
         rollTableSetName: string,
         rollTableId: string
-    ): Promise<RollTableResult> {
-        const rollTableSet = await this.getRollTableSet(rollTableSetName);
+    ): Promise<EquipmentRollTableResult> {
+        const rollTableSet = await RollTableUtil.readData<EquipmentRollTable[]>(rollTableSetName);
         const rollTable = rollTableSet.find(table => table.id === rollTableId);
         if (!rollTable) {
             throw new Error(
                 `Roll table with ID ${rollTableId} not found in set ${rollTableSetName}`
             );
         }
-        const rollTableWithWeights = this.addWeights(rollTable);
+        const rollTableWithWeights = {
+            ...rollTable,
+            entries: RollTableUtil.addWeights(rollTable.entries),
+        }
         const rollTableResult = this.makeRoll(rollTableWithWeights);
         return rollTableResult;
     }
 
-    private async getRollTableSet(rollTableSet: string): Promise<RollTable[]> {
-        const filePath = __dirname + '../../../data/3e/' + rollTableSet + '.yml';
-        const fileContent = await readFile(filePath, 'utf8');
-        return parse(fileContent) as RollTable[];
-    }
-
-    addWeights(tableData: RollTable): RollTable {
-        tableData.entries = tableData.entries.flatMap((entry) => {
-            const weight = entry.weight ?? 1;
-            const weightedEntries = [];
-            for (let i = 0; i < weight; i ++) {
-                weightedEntries.push({
-                    ...entry,
-                });
-                delete weightedEntries[i].weight;
-            }
-            return weightedEntries;
-        });
-        return tableData;
-    }
-
-    private makeRoll(tableData: RollTable): RollTableResult {
-        console.log(`Rolling on table: ${tableData.name}`);
+    private makeRoll(tableData: EquipmentRollTable): EquipmentRollTableResult {
+        console.log(`\nRolling on table: ${tableData.name}`);
         const totalEntries = tableData.entries.length;
         const randomIndex = Math.floor(Math.random() * totalEntries);
         const result = tableData.entries[randomIndex];
         
-        console.log(`- Result: ${result.value}`);
-        console.log('---');
+        console.log(`- Result: ${result.value}\n`);
         return {
             ...result,
             nextTable: result.nextTable ?? tableData.nextTable,
